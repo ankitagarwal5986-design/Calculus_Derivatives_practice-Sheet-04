@@ -1,0 +1,1313 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Brain and Mind Academy | AP Calculus: Derivatives Worksheet 03 Master Sheet</title>
+  
+  <!-- MathJax Configuration for Proper Mathematical Equation Typesetting -->
+  <script>
+    window.MathJax = {
+      tex: {
+        inlineMath: [['\\(', '\\)'], ['$', '$']],
+        displayMath: [['\\[', '\\]'], ['$$', '$$']],
+        processEscapes: true
+      },
+      options: {
+        skipHtmlTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code']
+      },
+      startup: {
+        pageReady: () => {
+          return MathJax.startup.defaultPageReady();
+        }
+      }
+    };
+  </script>
+  <script type="text/javascript" id="MathJax-script" async
+    src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js">
+  </script>
+
+  <style>
+    :root {
+      --primary-blue: #1e3a8a;
+      --primary-dark: #0f172a;
+      --accent-gold: #d97706;
+      --accent-gold-light: #fef3c7;
+      --correct-green: #059669;
+      --correct-green-light: #d1fae5;
+      --incorrect-red: #dc2626;
+      --incorrect-red-light: #fee2e2;
+      --skipped-amber: #f59e0b;
+      --skipped-amber-light: #fffbeb;
+      --unvisited-gray: #94a3b8;
+      --unvisited-light: #f8fafc;
+      --bg-slate: #f1f5f9;
+      --card-white: #ffffff;
+      --text-main: #1e293b;
+      --text-muted: #64748b;
+      --border-color: #e2e8f0;
+      --radius-sm: 6px;
+      --radius-md: 10px;
+      --radius-lg: 16px;
+      --shadow-sm: 0 1px 3px rgba(0,0,0,0.08);
+      --shadow-md: 0 4px 6px -1px rgba(0,0,0,0.1), 0 2px 4px -2px rgba(0,0,0,0.06);
+      --shadow-lg: 0 10px 15px -3px rgba(0,0,0,0.1), 0 4px 6px -4px rgba(0,0,0,0.05);
+    }
+
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    body {
+      font-family: 'Segoe UI', -apple-system, BlinkMacSystemFont, Roboto, sans-serif;
+      background-color: var(--bg-slate);
+      color: var(--text-main);
+      line-height: 1.6;
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+    }
+
+    /* Header */
+    header {
+      background: linear-gradient(135deg, var(--primary-dark) 0%, var(--primary-blue) 100%);
+      color: #ffffff; padding: 1rem 1.5rem; box-shadow: var(--shadow-md); position: sticky; top: 0; z-index: 100;
+    }
+    .header-container {
+      max-width: 1440px; margin: 0 auto; display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 1rem;
+    }
+    .brand-group { display: flex; align-items: center; gap: 12px; }
+    .brand-logo {
+      width: 42px; height: 42px; background: linear-gradient(135deg, #fbbf24, #d97706);
+      border-radius: 10px; display: flex; align-items: center; justify-content: center; font-weight: 800; color: #fff; font-size: 1.25rem;
+    }
+    .brand-title h1 { font-size: 1.15rem; font-weight: 700; }
+    .brand-title p { font-size: 0.8rem; color: #93c5fd; }
+    .user-actions { display: flex; align-items: center; gap: 10px; flex-wrap: wrap; }
+    .user-badge {
+      background: rgba(255, 255, 255, 0.12); border: 1px solid rgba(255, 255, 255, 0.2);
+      padding: 6px 12px; border-radius: 20px; font-size: 0.85rem; color: #f1f5f9; display: flex; align-items: center; gap: 6px;
+    }
+    .btn-icon {
+      background: rgba(255, 255, 255, 0.15); border: none; color: #ffffff; padding: 8px 12px; border-radius: var(--radius-sm); cursor: pointer; font-size: 0.85rem; font-weight: 600;
+    }
+    .btn-icon:hover { background: rgba(255, 255, 255, 0.25); }
+
+    main { max-width: 1440px; width: 100%; margin: 1.5rem auto; padding: 0 1rem; flex: 1; }
+    .view-section { display: none; }
+    .view-section.active { display: block; animation: fadeIn 0.25s ease-in-out; }
+    @keyframes fadeIn { from { opacity: 0; transform: translateY(6px); } to { opacity: 1; transform: translateY(0); } }
+
+    /* Welcome / Login Portal */
+    .card-center { max-width: 600px; margin: 3rem auto; background: var(--card-white); border-radius: var(--radius-lg); padding: 2.5rem; box-shadow: var(--shadow-lg); border: 1px solid var(--border-color); text-align: center; }
+    .login-icon { width: 64px; height: 64px; background: #eff6ff; color: var(--primary-blue); border-radius: 50%; display: flex; align-items: center; justify-content: center; margin: 0 auto 1.25rem auto; font-size: 2rem; }
+    .form-group { text-align: left; margin-bottom: 1.25rem; }
+    .form-group label { display: block; font-size: 0.85rem; font-weight: 600; margin-bottom: 6px; }
+    .form-control { width: 100%; padding: 12px; border: 1.5px solid var(--border-color); border-radius: var(--radius-sm); font-size: 1rem; outline: none; }
+    .form-control:focus { border-color: var(--primary-blue); box-shadow: 0 0 0 3px rgba(30, 58, 138, 0.15); }
+    .btn-primary { width: 100%; background: linear-gradient(135deg, var(--primary-blue), #2563eb); color: #ffffff; border: none; padding: 13px; font-weight: 700; font-size: 1rem; border-radius: var(--radius-sm); cursor: pointer; box-shadow: 0 4px 6px rgba(37, 99, 235, 0.25); }
+    .btn-primary:hover { box-shadow: 0 6px 12px rgba(37, 99, 235, 0.35); transform: translateY(-1px); }
+
+    /* Learning Workspace Grid */
+    .learning-grid-layout { display: grid; grid-template-columns: 1fr 380px; gap: 1.5rem; align-items: start; }
+    @media (max-width: 1080px) { .learning-grid-layout { grid-template-columns: 1fr; } }
+    
+    .problem-card { background: var(--card-white); border-radius: var(--radius-lg); padding: 2rem; box-shadow: var(--shadow-md); border: 1px solid var(--border-color); }
+    .problem-header { display: flex; justify-content: space-between; align-items: center; margin-bottom: 1.25rem; padding-bottom: 0.75rem; border-bottom: 1px solid var(--border-color); }
+    .p-tag { font-size: 1.15rem; font-weight: 800; color: var(--primary-blue); }
+    .parts-badge { background: #fef3c7; color: #b45309; font-weight: 700; font-size: 0.8rem; padding: 3px 9px; border-radius: 6px; border: 1px solid #fde68a; margin-left: 8px; }
+    .status-badge { font-size: 0.8rem; font-weight: 700; padding: 4px 10px; border-radius: 12px; text-transform: uppercase; }
+    .badge-unvisited { background: var(--unvisited-light); color: var(--unvisited-gray); border: 1px solid #cbd5e1; }
+    .badge-progress { background: #dbeafe; color: #1e40af; }
+    .badge-complete { background: var(--correct-green-light); color: var(--correct-green); }
+    .badge-skipped { background: var(--skipped-amber-light); color: var(--skipped-amber); }
+
+    .problem-context { font-size: 1.15rem; font-weight: 500; margin-bottom: 1.25rem; background: #f8fafc; border-left: 4px solid var(--accent-gold); padding: 16px 20px; border-radius: var(--radius-sm); line-height: 2.2; }
+
+    /* Progressive Multi-Step Cards */
+    .steps-container { display: flex; flex-direction: column; gap: 1.25rem; }
+    .step-card { border: 2px solid var(--border-color); border-radius: var(--radius-md); padding: 1.25rem 1.5rem; background: #ffffff; transition: all 0.25s ease-in-out; animation: slideDown 0.3s ease-out; }
+    @keyframes slideDown {
+      from { opacity: 0; transform: translateY(-8px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+    .step-card.active { border-color: #3b82f6; box-shadow: 0 4px 12px rgba(59, 130, 246, 0.12); }
+    .step-card.completed { border-color: var(--correct-green); background: #fcfdfc; }
+    
+    .step-header-bar { display: flex; justify-content: space-between; align-items: center; margin-bottom: 0.75rem; }
+    .step-title-text { font-weight: 700; font-size: 1rem; color: var(--primary-dark); }
+    .step-status-indicator { font-size: 0.8rem; font-weight: 700; padding: 2px 8px; border-radius: 6px; }
+    .step-card.completed .step-status-indicator { background: var(--correct-green-light); color: var(--correct-green); }
+    .step-card.active .step-status-indicator { background: #dbeafe; color: #1e40af; }
+
+    .step-prompt { font-size: 1.05rem; font-weight: 500; margin-bottom: 1rem; color: var(--text-main); line-height: 2.4; }
+
+    /* Step Inputs */
+    .step-input {
+      display: inline-block; width: 190px; padding: 6px 10px; font-size: 1.05rem; font-weight: 700; font-family: 'Segoe UI', monospace;
+      text-align: center; color: var(--primary-blue); background: #ffffff; border: 2px solid #94a3b8; border-radius: var(--radius-sm); outline: none; margin: 0 4px; vertical-align: middle;
+    }
+    .step-input:focus { border-color: #2563eb; box-shadow: 0 0 0 3px rgba(37, 99, 235, 0.2); }
+    .step-input.input-correct { border-color: var(--correct-green) !important; background: var(--correct-green-light) !important; color: #065f46 !important; }
+    .step-input.input-incorrect { border-color: var(--incorrect-red) !important; background: var(--incorrect-red-light) !important; color: #991b1b !important; }
+
+    .step-controls { display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 10px; margin-top: 0.75rem; padding-top: 0.75rem; border-top: 1px dashed var(--border-color); }
+    .step-feedback-msg { font-size: 0.88rem; font-weight: 600; }
+    .step-feedback-msg.correct { color: #166534; }
+    .step-feedback-msg.incorrect { color: #b91c1c; }
+
+    /* Mathematical Equation Editor / Virtual Keypad */
+    .tools-panel {
+      background: #f8fafc; border: 1.5px solid var(--border-color); border-radius: var(--radius-md); padding: 1rem; margin-bottom: 1.25rem;
+    }
+    .tool-tab-header {
+      display: flex; gap: 8px; border-bottom: 1.5px solid var(--border-color); padding-bottom: 8px; margin-bottom: 12px;
+    }
+    .tool-tab-btn {
+      background: none; border: none; font-size: 0.85rem; font-weight: 700; color: var(--text-muted); cursor: pointer; padding: 4px 8px; border-radius: 4px;
+    }
+    .tool-tab-btn.active {
+      color: var(--primary-blue); background: #e0e7ff;
+    }
+    .math-pad-grid {
+      display: grid; grid-template-columns: repeat(7, 1fr); gap: 6px;
+    }
+    .math-pad-btn {
+      background: #ffffff; border: 1px solid #cbd5e1; padding: 8px 4px; border-radius: var(--radius-sm); font-weight: 700; font-size: 0.95rem; cursor: pointer; text-align: center;
+    }
+    .math-pad-btn:hover { background: var(--primary-blue); color: #ffffff; border-color: var(--primary-blue); }
+
+    /* Calculator View */
+    .calc-box {
+      background: #ffffff; border: 1px solid var(--border-color); border-radius: var(--radius-sm); padding: 10px;
+    }
+    .calc-screen {
+      width: 100%; background: #0f172a; color: #38bdf8; font-family: monospace; font-size: 1.1rem; padding: 10px; border-radius: 4px; text-align: right; margin-bottom: 8px; overflow-x: auto;
+    }
+    .calc-grid {
+      display: grid; grid-template-columns: repeat(4, 1fr); gap: 6px;
+    }
+    .calc-btn {
+      background: #f1f5f9; border: 1px solid #cbd5e1; padding: 8px; border-radius: 4px; font-weight: 700; font-size: 0.9rem; cursor: pointer; text-align: center;
+    }
+    .calc-btn:hover { background: #e2e8f0; }
+    .calc-btn.op { background: #dbeafe; color: #1e40af; }
+    .calc-btn.eq { background: #059669; color: #fff; }
+
+    /* Palette Sidebar */
+    .palette-card { background: var(--card-white); border-radius: var(--radius-lg); padding: 1.25rem; border: 1px solid var(--border-color); position: sticky; top: 90px; box-shadow: var(--shadow-md); }
+    .palette-grid { display: grid; grid-template-columns: repeat(5, 1fr); gap: 6px; margin: 1rem 0; max-height: 320px; overflow-y: auto; padding-right: 4px; }
+    .palette-btn { aspect-ratio: 1; border-radius: var(--radius-sm); border: 1.5px solid var(--border-color); background: var(--unvisited-light); color: var(--text-muted); font-weight: 700; cursor: pointer; display: flex; align-items: center; justify-content: center; transition: all 0.15s ease; font-size: 0.78rem; }
+    .palette-btn.active { border: 2.5px solid #2563eb !important; background: #dbeafe !important; color: var(--primary-blue) !important; }
+    .palette-btn.completed { background: var(--correct-green) !important; color: #ffffff !important; border-color: var(--correct-green) !important; }
+    .palette-btn.progress { background: #93c5fd !important; border-color: #3b82f6 !important; color: #0f172a !important; }
+    .palette-btn.skipped { background: var(--skipped-amber) !important; color: #ffffff !important; border-color: var(--skipped-amber) !important; }
+    .palette-legend { border-top: 1px solid var(--border-color); padding-top: 0.75rem; display: grid; grid-template-columns: 1fr 1fr; gap: 6px; font-size: 0.75rem; }
+    .legend-item { display: flex; align-items: center; gap: 4px; color: var(--text-muted); }
+    .legend-color { width: 10px; height: 10px; border-radius: 2px; }
+
+    .problem-action-bar { display: flex; justify-content: space-between; align-items: center; padding-top: 1.25rem; border-top: 1px solid var(--border-color); margin-top: 1.5rem; flex-wrap: wrap; gap: 10px; }
+    .btn { padding: 9px 16px; border-radius: var(--radius-sm); font-weight: 700; font-size: 0.92rem; cursor: pointer; border: none; display: inline-flex; align-items: center; gap: 6px; transition: all 0.2s ease; }
+    .btn-step-check { background: var(--primary-blue); color: #ffffff; }
+    .btn-step-check:hover:not(:disabled) { background: #1d4ed8; }
+    .btn-step-back { background: #f1f5f9; color: var(--text-main); border: 1px solid var(--border-color); }
+    .btn-secondary { background: #e2e8f0; color: var(--text-main); }
+    .btn-skip { background: #ffffff; color: var(--skipped-amber); border: 1.5px solid var(--skipped-amber); }
+    .btn:disabled { opacity: 0.5; cursor: not-allowed; }
+
+    /* Results Review Sheet */
+    .score-hero-card { background: linear-gradient(135deg, var(--primary-dark) 0%, var(--primary-blue) 100%); color: #ffffff; border-radius: var(--radius-lg); padding: 2.5rem 2rem; text-align: center; margin-bottom: 2rem; box-shadow: var(--shadow-lg); }
+    .score-circle { width: 115px; height: 115px; border-radius: 50%; background: rgba(255,255,255,0.1); border: 4px solid var(--accent-gold); display: flex; flex-direction: column; align-items: center; justify-content: center; margin: 0 auto 1rem auto; }
+    .stats-row { display: grid; grid-template-columns: repeat(auto-fit, minmax(120px, 1fr)); gap: 1rem; max-width: 600px; margin: 1.5rem auto 0 auto; }
+    .stat-pill { background: rgba(255,255,255,0.1); padding: 10px; border-radius: var(--radius-md); }
+    .review-card { background: #ffffff; border: 1px solid var(--border-color); border-radius: var(--radius-md); padding: 1.5rem; margin-bottom: 1rem; box-shadow: var(--shadow-sm); line-height: 2.2; }
+
+    .modal-overlay { display: none; position: fixed; inset: 0; background: rgba(15,23,42,0.65); backdrop-filter: blur(3px); z-index: 999; align-items: center; justify-content: center; padding: 1rem; }
+    .modal-overlay.active { display: flex; }
+    .modal-box { background: #ffffff; max-width: 480px; width: 100%; border-radius: var(--radius-lg); padding: 2rem; text-align: center; }
+  </style>
+</head>
+<body>
+
+  <!-- Header -->
+  <header>
+    <div class="header-container">
+      <div class="brand-group">
+        <div class="brand-logo">d/dx</div>
+        <div class="brand-title">
+          <h1>Brain and Mind Academy</h1>
+          <p>AP Calculus / Calculus I • Derivatives Worksheet 03 Master Learning Sheet</p>
+        </div>
+      </div>
+      <div class="user-actions" id="headerActions" style="display: none;">
+        <div class="user-badge"><span id="userEmailSpan">student@academy.com</span></div>
+        <button class="btn-icon" id="soundToggleBtn"><span id="soundIcon">🔊</span></button>
+        <button class="btn-icon" id="switchUserBtn">Logout</button>
+      </div>
+    </div>
+  </header>
+
+  <main>
+    
+    <!-- 1. Authentication Portal -->
+    <section id="loginView" class="view-section active">
+      <div class="card-center">
+        <div class="login-icon">📐</div>
+        <h2>Derivatives Worksheet 03: Master Practice Sheet</h2>
+        <p>Complete step-by-step learning sheet covering all 20 questions: quotient rule, trigonometric derivatives, logarithmic & exponential chain rule, implicit/multi-function combinations, higher-order derivatives, tangent slopes, piecewise differentiability, and points of non-differentiability.</p>
+        <form id="loginForm">
+          <div class="form-group">
+            <label for="studentEmail">Student Verification Email ID</label>
+            <input type="email" id="studentEmail" class="form-control" placeholder="student@academy.com" required autocomplete="email" />
+          </div>
+          <button type="submit" class="btn-primary">Launch Master Learning Sheet →</button>
+        </form>
+      </div>
+    </section>
+
+    <!-- 2. Dynamic Guided Learning Workspace -->
+    <section id="sheetView" class="view-section">
+      <div class="learning-grid-layout">
+        
+        <!-- Left Side: Active Problem & Step Sequence -->
+        <div class="problem-card">
+          <div class="problem-header">
+            <div>
+              <span class="p-tag" id="pNumberDisplay">Question 1</span>
+              <span class="parts-badge" id="pPartsBadge">3 Steps Required</span>
+            </div>
+            <div class="status-badge badge-unvisited" id="pStatusBadge">Unvisited</div>
+          </div>
+          
+          <div class="problem-context" id="pContextDisplay"></div>
+
+          <!-- Mathematical Equation Editor / Virtual Keypad Toolbar -->
+          <div class="tools-panel">
+            <div class="tool-tab-header">
+              <button class="tool-tab-btn active" id="tabPadBtn" onclick="switchToolTab('pad')">⌨️ Mathematical Equation Editor</button>
+              <button class="tool-tab-btn" id="tabCalcBtn" onclick="switchToolTab('calc')">🧮 Interactive Scientific Calculator</button>
+            </div>
+            
+            <!-- Virtual Math Equation Editor Toolbar -->
+            <div id="mathPadView">
+              <div class="math-pad-grid">
+                <button class="math-pad-btn" onclick="insertSymbol('/')">/</button>
+                <button class="math-pad-btn" onclick="insertSymbol('x')">x</button>
+                <button class="math-pad-btn" onclick="insertSymbol('e')">e</button>
+                <button class="math-pad-btn" onclick="insertSymbol('π')">π</button>
+                <button class="math-pad-btn" onclick="insertSymbol('√')">√</button>
+                <button class="math-pad-btn" onclick="insertSymbol('-')">-</button>
+                <button class="math-pad-btn" onclick="insertSymbol('+')">+</button>
+                <button class="math-pad-btn" onclick="insertSymbol('(')">(</button>
+                <button class="math-pad-btn" onclick="insertSymbol(')')">)</button>
+                <button class="math-pad-btn" onclick="insertSymbol('^2')">x²</button>
+                <button class="math-pad-btn" onclick="insertSymbol('^3')">x³</button>
+                <button class="math-pad-btn" onclick="insertSymbol('sin')">sin</button>
+                <button class="math-pad-btn" onclick="insertSymbol('cos')">cos</button>
+                <button class="math-pad-btn" onclick="insertSymbol('tan')">tan</button>
+                <button class="math-pad-btn" onclick="insertSymbol('sec')">sec</button>
+                <button class="math-pad-btn" onclick="insertSymbol('ln')">ln</button>
+                <button class="math-pad-btn" onclick="insertSymbol(',')">,</button>
+                <button class="math-pad-btn" onclick="insertSymbol('.')">.</button>
+                <button class="math-pad-btn" onclick="insertSymbol(' ')">Space</button>
+                <button class="math-pad-btn" onclick="insertSymbol('II, IV, V')">II, IV, V</button>
+                <button class="math-pad-btn" style="background:#fef2f2; color:#dc2626;" onclick="clearActiveField()">Clear</button>
+              </div>
+            </div>
+
+            <!-- Built-in Calculator -->
+            <div id="calcView" style="display:none;">
+              <div class="calc-box">
+                <div class="calc-screen" id="calcScreen">0</div>
+                <div class="calc-grid">
+                  <button class="calc-btn" onclick="calcAppend('(')">(</button>
+                  <button class="calc-btn" onclick="calcAppend(')')">)</button>
+                  <button class="calc-btn" onclick="calcClear()">C</button>
+                  <button class="calc-btn op" onclick="calcAppend('/')">/</button>
+                  <button class="calc-btn" onclick="calcAppend('7')">7</button>
+                  <button class="calc-btn" onclick="calcAppend('8')">8</button>
+                  <button class="calc-btn" onclick="calcAppend('9')">9</button>
+                  <button class="calc-btn op" onclick="calcAppend('*')">*</button>
+                  <button class="calc-btn" onclick="calcAppend('4')">4</button>
+                  <button class="calc-btn" onclick="calcAppend('5')">5</button>
+                  <button class="calc-btn" onclick="calcAppend('6')">6</button>
+                  <button class="calc-btn op" onclick="calcAppend('-')">-</button>
+                  <button class="calc-btn" onclick="calcAppend('1')">1</button>
+                  <button class="calc-btn" onclick="calcAppend('2')">2</button>
+                  <button class="calc-btn" onclick="calcAppend('3')">3</button>
+                  <button class="calc-btn op" onclick="calcAppend('+')">+</button>
+                  <button class="calc-btn" onclick="calcAppend('0')">0</button>
+                  <button class="calc-btn" onclick="calcAppend('.')">.</button>
+                  <button class="calc-btn op" onclick="calcSqrt()">√</button>
+                  <button class="calc-btn eq" onclick="calcEval()">=</button>
+                </div>
+                <div style="margin-top:6px; display:flex; justify-content:flex-end;">
+                  <button class="btn btn-secondary" style="font-size:0.8rem; padding:4px 8px;" onclick="calcInsertToField()">↳ Insert Result into Input</button>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Progressive Step Stack -->
+          <div class="steps-container" id="stepsListContainer"></div>
+
+          <!-- Problem Navigation Bar -->
+          <div class="problem-action-bar">
+            <div style="display: flex; gap: 8px;">
+              <button class="btn btn-secondary" id="prevProblemBtn">← Prev Question</button>
+              <button class="btn btn-secondary" id="nextProblemBtn">Next Question →</button>
+            </div>
+            <button class="btn btn-skip" id="skipProblemBtn">Skip Question</button>
+          </div>
+        </div>
+
+        <!-- Right Side: Sidebar Navigation Palette -->
+        <aside class="palette-card">
+          <div style="display:flex; justify-content:space-between; align-items:center;">
+            <strong style="color:var(--primary-dark); font-size:1.02rem;">20-Question Index</strong>
+            <span style="font-size:0.85rem; color:var(--accent-gold); font-weight:700;" id="completionRateText">0/20 Solved</span>
+          </div>
+          <div class="palette-grid" id="paletteGridContainer"></div>
+          <div class="palette-legend">
+            <div class="legend-item"><div class="legend-color" style="background: var(--correct-green);"></div> Completed</div>
+            <div class="legend-item"><div class="legend-color" style="background: #93c5fd;"></div> Working</div>
+            <div class="legend-item"><div class="legend-color" style="background: var(--skipped-amber);"></div> Skipped</div>
+            <div class="legend-item"><div class="legend-color" style="background: var(--unvisited-light); border:1px solid var(--border-color);"></div> Empty</div>
+          </div>
+          <button class="btn btn-primary" id="finishAssessmentBtn" style="margin-top: 1.25rem; width: 100%;">Finish & View All Solutions</button>
+        </aside>
+
+      </div>
+    </section>
+
+    <!-- 3. Final Review & Score Dashboard -->
+    <section id="reviewView" class="view-section">
+      <div class="score-hero-card">
+        <span class="topic-pill" style="background:rgba(255,255,255,0.15); color:#fcd34d;">Assessment Report</span>
+        <h2 style="margin: 0.5rem 0; font-size: 1.7rem;">Derivatives Worksheet 03 Mastery Report</h2>
+        <div class="score-circle">
+          <div id="finalScoreVal" style="font-size:2rem; font-weight:800;">0</div>
+          <div style="font-size:0.8rem; color:#93c5fd;">out of 20</div>
+        </div>
+        <p id="performanceFeedbackDesc" style="color: #cbd5e1; font-size:0.95rem; max-width:520px; margin:0 auto;"></p>
+        <div class="stats-row">
+          <div class="stat-pill"><div style="font-size:0.75rem; color:#cbd5e1;">Accuracy</div><div id="accuracyStat" style="font-size:1.2rem; font-weight:700;">0%</div></div>
+          <div class="stat-pill"><div style="font-size:0.75rem; color:#cbd5e1;">Solved</div><div id="correctCountStat" style="font-size:1.2rem; font-weight:700; color:#4ade80;">0</div></div>
+          <div class="stat-pill"><div style="font-size:0.75rem; color:#cbd5e1;">Skipped</div><div id="skippedCountStat" style="font-size:1.2rem; font-weight:700; color:#fbbf24;">0</div></div>
+        </div>
+        <div style="margin-top: 1.5rem; display:flex; justify-content:center; gap:10px;">
+          <button class="btn" style="background: rgba(255,255,255,0.2); color:#fff;" id="retakeQuizBtn">↺ Retake Practice Sheet</button>
+          <button class="btn" style="background:#fff; color:var(--primary-dark);" onclick="window.print()">🖨️ Print Solutions</button>
+        </div>
+      </div>
+      <h3 style="color: var(--primary-dark); margin-bottom:1rem;">Complete Step-by-Step Mathematical Solutions (All 20 Questions)</h3>
+      <div id="reviewListContainer"></div>
+    </section>
+
+  </main>
+
+  <!-- Submit Modal -->
+  <div class="modal-overlay" id="confirmModal">
+    <div class="modal-box">
+      <h3 style="color:var(--primary-dark); margin-bottom:0.5rem;">Submit Worksheet?</h3>
+      <p style="color:var(--text-muted); font-size:0.92rem; margin-bottom:1.25rem;">Are you ready to submit your answers and view the full step-by-step solution report?</p>
+      <div style="display:flex; justify-content:center; gap:10px;">
+        <button class="btn btn-secondary" id="cancelModalBtn">Continue Solving</button>
+        <button class="btn btn-primary" id="confirmSubmitModalBtn" style="width:auto;">Submit Now</button>
+      </div>
+    </div>
+  </div>
+
+  <script>
+    /* ==========================================================================
+       COMPLETE 20-QUESTION DATASET (DERIVATIVES WORKSHEET 03)
+       ========================================================================== */
+    const PROBLEMS_DATA = [
+      // Question 1
+      {
+        id: 1,
+        title: "Question 1",
+        partsInfo: "3 Steps Required",
+        context: "Find the derivative of \\( f(x) = \\frac{x^2 - 3}{2x - 5} \\) using the quotient rule.",
+        steps: [
+          {
+            title: "Step 1 of 3: Quotient Rule Setup",
+            prompt: "Using \\( \\left(\\frac{u}{v}\\right)' = \\frac{u'v - uv'}{v^2} \\) with \\( u = x^2 - 3 \\) and \\( v = 2x - 5 \\):<br>\\( u' = \\) <input class='step-input' style='width:60px;' data-ans='2x'> and \\( v' = 2 \\).",
+            explanation: "\\( \\frac{d}{dx}[x^2 - 3] = 2x \\) and \\( \\frac{d}{dx}[2x - 5] = 2 \\)."
+          },
+          {
+            title: "Step 2 of 3: Expand and Simplify Numerator",
+            prompt: "Numerator: \\( 2x(2x - 5) - 2(x^2 - 3) = 4x^2 - 10x - 2x^2 + 6 = 2x^2 - 10x + \\) <input class='step-input' style='width:50px;' data-ans='6'>",
+            explanation: "\\( 4x^2 - 10x - 2x^2 + 6 = 2x^2 - 10x + 6 \\)."
+          },
+          {
+            title: "Step 3 of 3: State Simplified Derivative",
+            prompt: "Enter the complete simplified numerator of \\( f'(x) = \\frac{\\text{Numerator}}{(2x - 5)^2} \\): <input class='step-input' style='width:160px;' data-ans='2x^2-10x+6' data-alt='2x2-10x+6'>",
+            explanation: "\\( f'(x) = \\frac{2x^2 - 10x + 6}{(2x - 5)^2} \\)."
+          }
+        ]
+      },
+      // Question 2
+      {
+        id: 2,
+        title: "Question 2",
+        partsInfo: "2 Steps Required",
+        context: "Find the derivative of \\( f(x) = e^x \\cos x \\) using the product rule.",
+        steps: [
+          {
+            title: "Step 1 of 2: Product Rule Expansion",
+            prompt: "\\( f'(x) = \\frac{d}{dx}[e^x]\\cos x + e^x \\frac{d}{dx}[\\cos x] = e^x \\cos x + e^x( \\) <input class='step-input' style='width:80px;' data-ans='-sin x' data-alt='-sinx'>\\( ) \\)",
+            explanation: "\\( \\frac{d}{dx}[\\cos x] = -\\sin x \\) and \\( \\frac{d}{dx}[e^x] = e^x \\)."
+          },
+          {
+            title: "Step 2 of 2: Factor Out eˣ",
+            prompt: "\\( f'(x) = e^x(\\cos x - \\) <input class='step-input' style='width:70px;' data-ans='sin x' data-alt='sinx'>\\( ) \\)",
+            explanation: "\\( f'(x) = e^x(\\cos x - \\sin x) \\)."
+          }
+        ]
+      },
+      // Question 3
+      {
+        id: 3,
+        title: "Question 3",
+        partsInfo: "2 Steps Required",
+        context: "Find the derivative of \\( y = \\tan(\\ln(2x + 1)) \\) using the chain rule.",
+        steps: [
+          {
+            title: "Step 1 of 2: Differentiate the Inner Logarithm",
+            prompt: "\\( \\frac{d}{dx}[\\ln(2x + 1)] = \\frac{1}{2x + 1} \\cdot \\frac{d}{dx}(2x + 1) = \\frac{\\text{blank}}{2x + 1} \\) where blank is <input class='step-input' style='width:50px;' data-ans='2'>",
+            explanation: "\\( \\frac{d}{dx}[\\ln(2x + 1)] = \\frac{2}{2x + 1} \\)."
+          },
+          {
+            title: "Step 2 of 2: Combine with Outer Secant-Squared Derivative",
+            prompt: "\\( y' = \\sec^2(\\ln(2x + 1)) \\cdot \\frac{2}{2x + 1} = \\frac{k \\sec^2(\\ln(2x + 1))}{2x + 1} \\) where coefficient \\( k = \\) <input class='step-input' style='width:50px;' data-ans='2'>",
+            explanation: "\\( y' = \\frac{2\\sec^2(\\ln(2x + 1))}{2x + 1} \\)."
+          }
+        ]
+      },
+      // Question 4
+      {
+        id: 4,
+        title: "Question 4",
+        partsInfo: "2 Steps Required",
+        context: "Find the derivative of \\( y = \\cos^4(x^2) \\) using repeated chain rule applications.",
+        steps: [
+          {
+            title: "Step 1 of 2: Inner-Most Derivative",
+            prompt: "\\( y' = 4\\cos^3(x^2) \\cdot [-\\sin(x^2)] \\cdot \\frac{d}{dx}(x^2) \\). What is \\( \\frac{d}{dx}(x^2) \\)? <input class='step-input' style='width:60px;' data-ans='2x'>",
+            explanation: "\\( \\frac{d}{dx}(x^2) = 2x \\)."
+          },
+          {
+            title: "Step 2 of 2: Combine Factors into Product",
+            prompt: "\\( y' = 4 \\cdot (-1) \\cdot 2x \\cdot \\cos^3(x^2)\\sin(x^2) = k x \\cos^3(x^2)\\sin(x^2) \\) where \\( k = \\) <input class='step-input' style='width:60px;' data-ans='-8'>",
+            explanation: "\\( y' = -8x \\cos^3(x^2)\\sin(x^2) \\)."
+          }
+        ]
+      },
+      // Question 5
+      {
+        id: 5,
+        title: "Question 5",
+        partsInfo: "2 Steps Required",
+        context: "Find the derivative of \\( y = \\frac{\\cos x}{1 + \\sin x} \\) and simplify using trigonometric identities.",
+        steps: [
+          {
+            title: "Step 1 of 2: Quotient Rule Numerator Simplification",
+            prompt: "Numerator: \\( (-\\sin x)(1 + \\sin x) - (\\cos x)(\\cos x) = -\\sin x - \\sin^2 x - \\cos^2 x = -\\sin x - \\) <input class='step-input' style='width:50px;' data-ans='1'>",
+            explanation: "Since \\( \\sin^2 x + \\cos^2 x = 1 \\), the numerator simplifies to \\( -\\sin x - 1 = -(1 + \\sin x) \\)."
+          },
+          {
+            title: "Step 2 of 2: Cancel Common Factor with Denominator",
+            prompt: "\\( y' = \\frac{-(1 + \\sin x)}{(1 + \\sin x)^2} = -\\frac{1}{\\text{blank}} \\) where blank is <input class='step-input' style='width:100px;' data-ans='1+sin x' data-alt='1+sinx'>",
+            explanation: "\\( y' = -\\frac{1}{1 + \\sin x} \\)."
+          }
+        ]
+      },
+      // Question 6
+      {
+        id: 6,
+        title: "Question 6",
+        partsInfo: "2 Steps Required",
+        context: "Find the derivative of \\( y = \\arctan(3x^2) \\).",
+        steps: [
+          {
+            title: "Step 1 of 2: Derivative of Inner Function u = 3x²",
+            prompt: "Using \\( \\frac{d}{dx}[\\arctan(u)] = \\frac{u'}{1 + u^2} \\): \\( u' = \\frac{d}{dx}(3x^2) = \\) <input class='step-input' style='width:60px;' data-ans='6x'>",
+            explanation: "\\( u' = 6x \\)."
+          },
+          {
+            title: "Step 2 of 2: Simplify Denominator 1 + u²",
+            prompt: "\\( 1 + (3x^2)^2 = 1 + k x^4 \\) where coefficient \\( k = \\) <input class='step-input' style='width:50px;' data-ans='9'>. So \\( y' = \\frac{6x}{1 + 9x^4} \\).",
+            explanation: "\\( y' = \\frac{6x}{1 + 9x^4} \\)."
+          }
+        ]
+      },
+      // Question 7
+      {
+        id: 7,
+        title: "Question 7",
+        partsInfo: "1 Step Required",
+        context: "Find the derivative of \\( f(x) = \\ln(1 + e^x) \\).",
+        steps: [
+          {
+            title: "Step 1 of 1: Apply Chain Rule to Logarithm",
+            prompt: "\\( f'(x) = \\frac{\\frac{d}{dx}(1 + e^x)}{1 + e^x} = \\frac{\\text{Numerator}}{1 + e^x} \\) where Numerator is <input class='step-input' style='width:60px;' data-ans='e^x' data-alt='e^x'>",
+            explanation: "\\( f'(x) = \\frac{e^x}{1 + e^x} \\)."
+          }
+        ]
+      },
+      // Question 8
+      {
+        id: 8,
+        title: "Question 8",
+        partsInfo: "2 Steps Required",
+        context: "Find the derivative of \\( f(x) = e^{-x^2/2} \\).",
+        steps: [
+          {
+            title: "Step 1 of 2: Differentiate the Exponent",
+            prompt: "\\( \\frac{d}{dx}\\left(-\\frac{x^2}{2}\\right) = \\) <input class='step-input' style='width:50px;' data-ans='-x'>",
+            explanation: "\\( \\frac{d}{dx}\\left(-\\frac{1}{2}x^2\\right) = -x \\)."
+          },
+          {
+            title: "Step 2 of 2: Multiply by Exponential Factor",
+            prompt: "\\( f'(x) = e^{-x^2/2} \\cdot (-x) = \\) <input class='step-input' style='width:130px;' data-ans='-x*e^(-x^2/2)' data-alt='-xe^(-x^2/2)'>",
+            explanation: "\\( f'(x) = -x e^{-x^2/2} \\)."
+          }
+        ]
+      },
+      // Question 9
+      {
+        id: 9,
+        title: "Question 9",
+        partsInfo: "3 Steps Required",
+        context: "Find the derivative of \\( y = \\left(\\frac{1 + \\sin x}{1 - \\cos x}\\right)^2 \\).",
+        steps: [
+          {
+            title: "Step 1 of 3: Apply Outer Power Rule",
+            prompt: "\\( y' = 2\\left(\\frac{1 + \\sin x}{1 - \\cos x}\\right) \\cdot \\frac{d}{dx}\\left[\\frac{1 + \\sin x}{1 - \\cos x}\\right] \\).",
+            explanation: "Power rule generates factor \\( 2u \\)."
+          },
+          {
+            title: "Step 2 of 3: Simplify Inner Quotient Rule Numerator",
+            prompt: "Numerator of inner quotient: \\( \\cos x (1 - \\cos x) - (1 + \\sin x)(\\sin x) = \\cos x - \\cos^2 x - \\sin x - \\sin^2 x = \\cos x - \\sin x - \\) <input class='step-input' style='width:50px;' data-ans='1'>",
+            explanation: "Because \\( -(\\cos^2 x + \\sin^2 x) = -1 \\), numerator is \\( \\cos x - \\sin x - 1 \\)."
+          },
+          {
+            title: "Step 3 of 3: Combine Denominators",
+            prompt: "Total denominator is \\( (1 - \\cos x)^k \\) where exponent \\( k = \\) <input class='step-input' style='width:50px;' data-ans='3'>. So \\( y' = \\frac{2(1 + \\sin x)(\\cos x - \\sin x - 1)}{(1 - \\cos x)^3} \\).",
+            explanation: "\\( y' = \\frac{2(1 + \\sin x)(\\cos x - \\sin x - 1)}{(1 - \\cos x)^3} \\)."
+          }
+        ]
+      },
+      // Question 10
+      {
+        id: 10,
+        title: "Question 10",
+        partsInfo: "2 Steps Required",
+        context: "Find the derivative of \\( y = \\sin\\left(\\frac{2}{x}\\right) \\).",
+        steps: [
+          {
+            title: "Step 1 of 2: Differentiate Inner Function 2/x",
+            prompt: "\\( \\frac{d}{dx}\\left(2x^{-1}\\right) = -\\frac{\\text{blank}}{x^2} \\) where blank is <input class='step-input' style='width:50px;' data-ans='2'>",
+            explanation: "\\( \\frac{d}{dx}(2x^{-1}) = -2x^{-2} = -\\frac{2}{x^2} \\)."
+          },
+          {
+            title: "Step 2 of 2: Combine with Cosine Derivative",
+            prompt: "\\( y' = -\\frac{2}{x^2} \\cos\\left(\\frac{\\text{blank}}{x}\\right) \\) where blank is <input class='step-input' style='width:50px;' data-ans='2'>",
+            explanation: "\\( y' = -\\frac{2}{x^2}\\cos(2/x) \\)."
+          }
+        ]
+      },
+      // Question 11
+      {
+        id: 11,
+        title: "Question 11",
+        partsInfo: "2 Steps Required",
+        context: "Find the derivative of \\( y = x\\sqrt{2x + 1} \\) using the product rule.",
+        steps: [
+          {
+            title: "Step 1 of 2: Product Rule Expansion",
+            prompt: "\\( y' = (1)\\sqrt{2x + 1} + x \\cdot \\frac{1}{2\\sqrt{2x + 1}} \\cdot (2) = \\sqrt{2x + 1} + \\frac{x}{\\sqrt{2x + 1}} \\).",
+            explanation: "\\( y' = \\sqrt{2x + 1} + \\frac{x}{\\sqrt{2x + 1}} \\)."
+          },
+          {
+            title: "Step 2 of 2: Combine Over Common Denominator",
+            prompt: "\\( y' = \\frac{(2x + 1) + x}{\\sqrt{2x + 1}} = \\frac{a x + 1}{\\sqrt{2x + 1}} \\) where coefficient \\( a = \\) <input class='step-input' style='width:50px;' data-ans='3'>",
+            explanation: "\\( y' = \\frac{3x + 1}{\\sqrt{2x + 1}} \\)."
+          }
+        ]
+      },
+      // Question 12
+      {
+        id: 12,
+        title: "Question 12",
+        partsInfo: "2 Steps Required",
+        context: "Find the derivative of \\( y = 2x^{3.5} + x^{-3.5} + \\tan(3.5x) + 3.5^2 \\).",
+        steps: [
+          {
+            title: "Step 1 of 2: Power Rule on Decimal Exponents",
+            prompt: "\\( \\frac{d}{dx}[2x^{3.5}] = \\) <input class='step-input' style='width:70px;' data-ans='7x^2.5' data-alt='7x^2.5'> and \\( \\frac{d}{dx}[x^{-3.5}] = -3.5x^{-4.5} \\).",
+            explanation: "\\( 2(3.5)x^{2.5} = 7x^{2.5} \\)."
+          },
+          {
+            title: "Step 2 of 2: Derivative of Tangent and Constant",
+            prompt: "\\( \\frac{d}{dx}[\\tan(3.5x)] = 3.5\\sec^2(3.5x) \\) and derivative of constant \\( 3.5^2 \\) is <input class='step-input' style='width:50px;' data-ans='0'>.",
+            explanation: "Derivative of constant \\( 3.5^2 = 12.25 \\) is 0."
+          }
+        ]
+      },
+      // Question 13
+      {
+        id: 13,
+        title: "Question 13",
+        partsInfo: "1 Step Required",
+        context: "Find the derivative of \\( y = \\sec x \\tan x \\).",
+        steps: [
+          {
+            title: "Step 1 of 1: Product Rule and Factoring",
+            prompt: "\\( y' = (\\sec x \\tan x)(\\tan x) + \\sec x(\\sec^2 x) = \\sec x \\tan^2 x + \\sec^3 x \\). Factoring out \\( \\sec x \\) gives \\( \\sec x(\\sec^2 x + \\) <input class='step-input' style='width:80px;' data-ans='tan^2 x' data-alt='tan^2(x)'>\\( ) \\)",
+            explanation: "\\( y' = \\sec x(\\sec^2 x + \\tan^2 x) \\)."
+          }
+        ]
+      },
+      // Question 14
+      {
+        id: 14,
+        title: "Question 14",
+        partsInfo: "1 Step Required",
+        context: "Find the derivative of \\( y = \\sqrt{1 + \\cos x} \\).",
+        steps: [
+          {
+            title: "Step 1 of 1: Chain Rule on Square Root",
+            prompt: "\\( y' = \\frac{1}{2\\sqrt{1 + \\cos x}} \\cdot \\frac{d}{dx}(1 + \\cos x) = \\frac{-\\sin x}{k\\sqrt{1 + \\cos x}} \\) where constant \\( k = \\) <input class='step-input' style='width:50px;' data-ans='2'>",
+            explanation: "\\( y' = \\frac{-\\sin x}{2\\sqrt{1 + \\cos x}} \\)."
+          }
+        ]
+      },
+      // Question 15
+      {
+        id: 15,
+        title: "Question 15",
+        partsInfo: "2 Steps Required",
+        context: "Find the derivative of \\( y = \\frac{fg}{h} \\) in terms of \\( f, g, h, f', g', h' \\).",
+        steps: [
+          {
+            title: "Step 1 of 2: Product Rule for Numerator fg",
+            prompt: "\\( (fg)' = f'g + \\) <input class='step-input' style='width:60px;' data-ans='fg&#39;' data-alt=\"fg'\">",
+            explanation: "\\( (fg)' = f'g + fg' \\)."
+          },
+          {
+            title: "Step 2 of 2: Quotient Rule with Denominator h",
+            prompt: "\\( y' = \\frac{(f'g + fg')h - (fg)h'}{h^2} = \\frac{f'gh + fg'h - fgh'}{\\text{blank}} \\) where blank is <input class='step-input' style='width:50px;' data-ans='h^2' data-alt='h2'>",
+            explanation: "\\( y' = \\frac{f'gh + fg'h - fgh'}{h^2} \\)."
+          }
+        ]
+      },
+      // Question 16
+      {
+        id: 16,
+        title: "Question 16",
+        partsInfo: "2 Steps Required",
+        context: "Find the rate of change of \\( y = (4x^3 + 7x^2 + 1)^2 \\) at \\( x = -1 \\).",
+        steps: [
+          {
+            title: "Step 1 of 2: General Derivative Function y'",
+            prompt: "\\( y' = 2(4x^3 + 7x^2 + 1) \\cdot (12x^2 + \\) <input class='step-input' style='width:60px;' data-ans='14x'>\\( ) \\)",
+            explanation: "\\( y' = 2(4x^3 + 7x^2 + 1)(12x^2 + 14x) \\)."
+          },
+          {
+            title: "Step 2 of 2: Numerical Evaluation at x = -1",
+            prompt: "• Base: \\( 4(-1)^3 + 7(-1)^2 + 1 = 4 \\).<br>• Inner derivative: \\( 12(-1)^2 + 14(-1) = -2 \\).<br>• Rate of change \\( = 2(4)(-2) = \\) <input class='step-input' style='width:60px;' data-ans='-16'>",
+            explanation: "\\( 2(4)(-2) = -16 \\)."
+          }
+        ]
+      },
+      // Question 17
+      {
+        id: 17,
+        title: "Question 17",
+        partsInfo: "2 Steps Required",
+        context: "If \\( f(x) = \\sin^3 x \\), find \\( f''(x) \\).",
+        steps: [
+          {
+            title: "Step 1 of 2: Compute First Derivative f'(x)",
+            prompt: "\\( f'(x) = 3\\sin^2 x \\cdot \\frac{d}{dx}(\\sin x) = 3\\sin^2 x \\cdot \\) <input class='step-input' style='width:60px;' data-ans='cos x' data-alt='cosx'>",
+            explanation: "\\( f'(x) = 3\\sin^2 x \\cos x \\)."
+          },
+          {
+            title: "Step 2 of 2: Product Rule to Find f''(x)",
+            prompt: "\\( f''(x) = (6\\sin x \\cos x)\\cos x + 3\\sin^2 x(-\\sin x) = 6\\sin x \\cos^2 x - 3\\sin^3 x \\). Factoring out \\( 3\\sin x \\) gives \\( 3\\sin x(2\\cos^2 x - \\) <input class='step-input' style='width:70px;' data-ans='sin^2 x' data-alt='sin^2(x)'>\\( ) \\)",
+            explanation: "\\( f''(x) = 3\\sin x(2\\cos^2 x - \\sin^2 x) \\)."
+          }
+        ]
+      },
+      // Question 18
+      {
+        id: 18,
+        title: "Question 18",
+        partsInfo: "2 Steps Required",
+        context: "Find the slope of the line tangent to the curve \\( y = \\cos(2x) \\) at \\( x = \\frac{\\pi}{6} \\).",
+        steps: [
+          {
+            title: "Step 1 of 2: Compute Derivative dy/dx",
+            prompt: "\\( y' = -2\\sin(2x) \\).",
+            explanation: "\\( \\frac{d}{dx}[\\cos(2x)] = -2\\sin(2x) \\)."
+          },
+          {
+            title: "Step 2 of 2: Evaluate at x = π/6",
+            prompt: "\\( y'\\left(\\frac{\\pi}{6}\\right) = -2\\sin\\left(\\frac{\\pi}{3}\\right) = -2\\left(\\frac{\\sqrt{3}}{2}\\right) = \\) <input class='step-input' style='width:80px;' data-ans='-√3' data-alt='-sqrt(3)'>",
+            explanation: "\\( -2\\left(\\frac{\\sqrt{3}}{2}\\right) = -\\sqrt{3} \\)."
+          }
+        ]
+      },
+      // Question 19
+      {
+        id: 19,
+        title: "Question 19",
+        partsInfo: "3 Steps Required",
+        context: "Let \\( f(x) = \\begin{cases} \\sin(\\pi x), & 0 \\le x \\le 1 \\\\ ax + b, & 1 < x \\le 2 \\end{cases} \\). Find \\( a \\) and \\( b \\) such that \\( f(x) \\) is differentiable at \\( x = 1 \\).",
+        steps: [
+          {
+            title: "Step 1 of 3: Continuity Condition at x = 1",
+            prompt: "\\( \\lim_{x \\to 1^-} \\sin(\\pi x) = \\sin(\\pi) = 0 \\). For right limit: \\( a(1) + b = 0 \\implies a + b = \\) <input class='step-input' style='width:50px;' data-ans='0'>",
+            explanation: "Continuity requires \\( a + b = 0 \\implies b = -a \\)."
+          },
+          {
+            title: "Step 2 of 3: Differentiability Condition at x = 1",
+            prompt: "Left derivative: \\( \\frac{d}{dx}[\\sin(\\pi x)]_{x=1} = \\pi \\cos(\\pi) = -\\pi \\).<br>Right derivative: \\( \\frac{d}{dx}[ax + b] = a \\). Therefore, \\( a = \\) <input class='step-input' style='width:60px;' data-ans='-π' data-alt='-pi'>",
+            explanation: "\\( a = -\\pi \\)."
+          },
+          {
+            title: "Step 3 of 3: Solve for Parameter b",
+            prompt: "Since \\( b = -a \\), find \\( b = \\) <input class='step-input' style='width:50px;' data-ans='π' data-alt='pi'>",
+            explanation: "\\( b = \\pi \\)."
+          }
+        ]
+      },
+      // Question 20
+      {
+        id: 20,
+        title: "Question 20",
+        partsInfo: "3 Steps Required",
+        context: "Which of the following functions are NOT differentiable at \\( x = 0 \\)?<br>I. \\( y = \\sqrt{4 - x^2} \\)<br>II. \\( y = x^{2/3} \\)<br>III. \\( y = x^{4/3} \\)<br>IV. \\( y = x^{-2} \\)<br>V. \\( y = |\\sin(2x)| \\)",
+        steps: [
+          {
+            title: "Step 1 of 3: Check Differentiability of Functions I, II, III",
+            prompt: "• \\( y_I'(0) = 0 \\) (differentiable).<br>• \\( y_{II}' = \\frac{2}{3x^{1/3}} \\) (cusp at \\( x = 0 \\), not differentiable).<br>• \\( y_{III}' = \\frac{4}{3}x^{1/3} \\implies y'(0) = 0 \\) (differentiable).",
+            explanation: "Function II is not differentiable at \\( x = 0 \\)."
+          },
+          {
+            title: "Step 2 of 3: Check Differentiability of Functions IV and V",
+            prompt: "• \\( y_{IV} = \\frac{1}{x^2} \\) is undefined at \\( x = 0 \\) (not differentiable).<br>• \\( y_V = |\\sin(2x)| \\) has a sharp corner at \\( x = 0 \\) (slopes are \\( -2 \\) from left, \\( +2 \\) from right, not differentiable).",
+            explanation: "Functions IV and V are not differentiable at \\( x = 0 \\)."
+          },
+          {
+            title: "Step 3 of 3: Final Selection of Non-Differentiable Functions",
+            prompt: "Enter the Roman numerals of all non-differentiable functions separated by commas (e.g. II, IV, V): <input class='step-input' style='width:120px;' data-ans='II, IV, V' data-alt='II,IV,V'>",
+            explanation: "Functions II, IV, and V are NOT differentiable at \\( x = 0 \\)."
+          }
+        ]
+      }
+    ];
+
+    /* ==========================================================================
+       RICH SYNTHESIZED AUDIO ENGINE (WEB AUDIO API)
+       Features: Multi-frequency pleasant chime arpeggios, gentle error thuds, and fanfare.
+       ========================================================================== */
+    let audioCtx = null;
+    let soundEnabled = true;
+
+    function getAudioContext() {
+      if (!audioCtx) audioCtx = new (window.AudioContext || window.webkitAudioContext)();
+      if (audioCtx.state === 'suspended') audioCtx.resume();
+      return audioCtx;
+    }
+
+    function playSound(type) {
+      if (!soundEnabled) return;
+      try {
+        const ctx = getAudioContext();
+        const now = ctx.currentTime;
+
+        if (type === 'correct') {
+          // Beautiful bright 3-note major chime: C5 (523Hz), E5 (659Hz), G5 (784Hz)
+          const notes = [523.25, 659.25, 783.99];
+          notes.forEach((freq, i) => {
+            const osc = ctx.createOscillator();
+            const gain = ctx.createGain();
+            osc.type = 'sine';
+            osc.frequency.setValueAtTime(freq, now + i * 0.08);
+
+            gain.gain.setValueAtTime(0.001, now + i * 0.08);
+            gain.gain.linearRampToValueAtTime(0.18, now + i * 0.08 + 0.02);
+            gain.gain.exponentialRampToValueAtTime(0.0001, now + i * 0.08 + 0.35);
+
+            osc.connect(gain);
+            gain.connect(ctx.destination);
+            osc.start(now + i * 0.08);
+            osc.stop(now + i * 0.08 + 0.38);
+          });
+        } else if (type === 'incorrect') {
+          // Gentle, warm low double-thud (not harsh sawtooth): 174Hz -> 138Hz
+          const osc1 = ctx.createOscillator();
+          const gain1 = ctx.createGain();
+          osc1.type = 'triangle';
+          osc1.frequency.setValueAtTime(174.61, now);
+          osc1.frequency.exponentialRampToValueAtTime(138.59, now + 0.18);
+
+          gain1.gain.setValueAtTime(0.2, now);
+          gain1.gain.exponentialRampToValueAtTime(0.001, now + 0.25);
+
+          osc1.connect(gain1);
+          gain1.connect(ctx.destination);
+          osc1.start(now);
+          osc1.stop(now + 0.26);
+        } else if (type === 'fanfare') {
+          // Grand celebratory chord progression
+          const chord = [523.25, 659.25, 783.99, 1046.50];
+          chord.forEach((freq, idx) => {
+            const osc = ctx.createOscillator();
+            const gain = ctx.createGain();
+            osc.type = 'sine';
+            osc.frequency.setValueAtTime(freq, now + idx * 0.1);
+
+            gain.gain.setValueAtTime(0.001, now + idx * 0.1);
+            gain.gain.linearRampToValueAtTime(0.15, now + idx * 0.1 + 0.04);
+            gain.gain.exponentialRampToValueAtTime(0.0001, now + idx * 0.1 + 0.6);
+
+            osc.connect(gain);
+            gain.connect(ctx.destination);
+            osc.start(now + idx * 0.1);
+            osc.stop(now + idx * 0.1 + 0.65);
+          });
+        } else {
+          // Tactile UI click / pop
+          const osc = ctx.createOscillator();
+          const gain = ctx.createGain();
+          osc.type = 'sine';
+          osc.frequency.setValueAtTime(600, now);
+          osc.frequency.exponentialRampToValueAtTime(850, now + 0.06);
+
+          gain.gain.setValueAtTime(0.12, now);
+          gain.gain.exponentialRampToValueAtTime(0.001, now + 0.08);
+
+          osc.connect(gain);
+          gain.connect(ctx.destination);
+          osc.start(now);
+          osc.stop(now + 0.09);
+        }
+      } catch (e) {}
+    }
+
+    /* ==========================================================================
+       STATE & LOCALSTORAGE PERSISTENCE
+       ========================================================================== */
+    const STORAGE_KEY = "bma_calc_derivatives_ws03_master_clean";
+    let activeInputElement = null;
+
+    let state = {
+      currentEmail: null,
+      currentProblemIdx: 0,
+      isCompleted: false,
+      problems: {}
+    };
+
+    function saveState() {
+      if (!state.currentEmail) return;
+      localStorage.setItem(`${STORAGE_KEY}_${state.currentEmail.trim().toLowerCase()}`, JSON.stringify(state));
+      localStorage.setItem(`${STORAGE_KEY}_last_active`, state.currentEmail);
+    }
+
+    function loadState(email) {
+      const data = localStorage.getItem(`${STORAGE_KEY}_${email.trim().toLowerCase()}`);
+      if (data) {
+        try { state = { ...state, ...JSON.parse(data), currentEmail: email }; } catch(e) {}
+      } else {
+        state = { currentEmail: email, currentProblemIdx: 0, isCompleted: false, problems: {} };
+      }
+    }
+
+    function getProblemState(idx) {
+      if (!state.problems[idx]) {
+        state.problems[idx] = { completedSteps: [], inputs: {}, isSolved: false, isSkipped: false };
+      }
+      return state.problems[idx];
+    }
+
+    function cleanString(s) {
+      return (s || "").toString().trim().toLowerCase().replace(/\s+/g, '').replace(/−/g, '-').replace(/[()]/g, '');
+    }
+
+    function testInputMatching(userStr, targetStr, altStr) {
+      const u = cleanString(userStr);
+      const t = cleanString(targetStr);
+      const a = cleanString(altStr);
+      if (!u) return false;
+      if (u === t || (altStr && u === a)) return true;
+      if (u.includes('/') || t.includes('/')) {
+        const d = (f) => f.split('/').length === 2 ? parseFloat(f.split('/')[0]) / parseFloat(f.split('/')[1]) : parseFloat(f);
+        return Math.abs(d(u) - d(t)) < 0.02;
+      }
+      const numU = parseFloat(u);
+      const numT = parseFloat(t);
+      if (!isNaN(numU) && !isNaN(numT)) {
+        return Math.abs(numU - numT) < 0.05;
+      }
+      return false;
+    }
+
+    function triggerMathTypeset() {
+      if (window.MathJax && window.MathJax.typesetPromise) {
+        window.MathJax.typesetPromise().catch((err) => console.warn('MathJax error:', err));
+      }
+    }
+
+    /* ==========================================================================
+       MATHEMATICAL EQUATION EDITOR & CALCULATOR HELPERS
+       ========================================================================== */
+    window.trackActiveField = function(element) { activeInputElement = element; };
+    window.insertSymbol = function(sym) {
+      if (!activeInputElement) return;
+      const start = activeInputElement.selectionStart || 0;
+      const end = activeInputElement.selectionEnd || 0;
+      const val = activeInputElement.value;
+      activeInputElement.value = val.substring(0, start) + sym + val.substring(end);
+      activeInputElement.focus();
+      activeInputElement.dispatchEvent(new Event('input', { bubbles: true }));
+    };
+    window.clearActiveField = function() {
+      if (!activeInputElement) return;
+      activeInputElement.value = '';
+      activeInputElement.dispatchEvent(new Event('input', { bubbles: true }));
+      activeInputElement.focus();
+    };
+
+    window.switchToolTab = function(tab) {
+      document.getElementById('tabPadBtn').classList.toggle('active', tab === 'pad');
+      document.getElementById('tabCalcBtn').classList.toggle('active', tab === 'calc');
+      document.getElementById('mathPadView').style.display = tab === 'pad' ? 'grid' : 'none';
+      document.getElementById('calcView').style.display = tab === 'calc' ? 'block' : 'none';
+    };
+
+    let calcExpression = "";
+    window.calcAppend = function(val) {
+      calcExpression += val;
+      document.getElementById('calcScreen').textContent = calcExpression || "0";
+    };
+    window.calcClear = function() {
+      calcExpression = "";
+      document.getElementById('calcScreen').textContent = "0";
+    };
+    window.calcSqrt = function() {
+      try {
+        const res = Math.sqrt(eval(calcExpression || "0"));
+        calcExpression = String(res);
+        document.getElementById('calcScreen').textContent = calcExpression;
+      } catch(e) { document.getElementById('calcScreen').textContent = "Error"; }
+    };
+    window.calcEval = function() {
+      try {
+        const res = eval(calcExpression || "0");
+        calcExpression = String(res);
+        document.getElementById('calcScreen').textContent = calcExpression;
+      } catch(e) { document.getElementById('calcScreen').textContent = "Error"; }
+    };
+    window.calcInsertToField = function() {
+      if (!activeInputElement || !calcExpression) return;
+      insertSymbol(calcExpression);
+    };
+
+    /* ==========================================================================
+       ROUTER & VIEW SWITCHING CONTROLS
+       ========================================================================== */
+    const loginForm = document.getElementById('loginForm');
+    const studentEmailInput = document.getElementById('studentEmail');
+
+    loginForm.addEventListener('submit', (e) => {
+      e.preventDefault();
+      const email = studentEmailInput.value.trim();
+      if (!email) return;
+      loadState(email);
+      if (state.isCompleted) {
+        renderReviewScreen();
+        showView('review');
+      } else {
+        renderProblem(state.currentProblemIdx);
+        showView('sheet');
+      }
+    });
+
+    document.getElementById('switchUserBtn').addEventListener('click', () => {
+      saveState();
+      state.currentEmail = null;
+      showView('login');
+    });
+
+    document.getElementById('soundToggleBtn').addEventListener('click', () => {
+      soundEnabled = !soundEnabled;
+      document.getElementById('soundIcon').textContent = soundEnabled ? '🔊' : '🔇';
+    });
+
+    function showView(v) {
+      document.querySelectorAll('.view-section').forEach(el => el.classList.remove('active'));
+      document.getElementById(`${v}View`).classList.add('active');
+      document.getElementById('headerActions').style.display = state.currentEmail ? 'flex' : 'none';
+      if (state.currentEmail) document.getElementById('userEmailSpan').textContent = state.currentEmail;
+    }
+
+    /* ==========================================================================
+       PROGRESSIVE STEP-BY-STEP RENDERER
+       ========================================================================== */
+    function renderProblem(idx) {
+      if (idx < 0 || idx >= PROBLEMS_DATA.length) return;
+      state.currentProblemIdx = idx;
+      const prob = PROBLEMS_DATA[idx];
+      const pState = getProblemState(idx);
+
+      document.getElementById('pNumberDisplay').textContent = `${prob.title}`;
+      document.getElementById('pPartsBadge').textContent = `${prob.partsInfo}`;
+      document.getElementById('pContextDisplay').innerHTML = prob.context;
+
+      const badge = document.getElementById('pStatusBadge');
+      if (pState.isSolved) { badge.className = 'status-badge badge-complete'; badge.textContent = 'Completed'; }
+      else if (pState.isSkipped) { badge.className = 'status-badge badge-skipped'; badge.textContent = 'Skipped'; }
+      else if (pState.completedSteps.length > 0) { badge.className = 'status-badge badge-progress'; badge.textContent = 'In Progress'; }
+      else { badge.className = 'status-badge badge-unvisited'; badge.textContent = 'Unvisited'; }
+
+      const container = document.getElementById('stepsListContainer');
+      container.innerHTML = '';
+
+      // Reveal completed steps plus the current active step
+      const completedCount = pState.completedSteps.length;
+      const maxStepToRender = pState.isSolved ? prob.steps.length - 1 : Math.min(completedCount, prob.steps.length - 1);
+
+      for (let sIdx = 0; sIdx <= maxStepToRender; sIdx++) {
+        const step = prob.steps[sIdx];
+        const isDone = pState.completedSteps.includes(sIdx);
+        const isActive = !isDone;
+
+        const card = document.createElement('div');
+        card.id = `step-card-${idx}-${sIdx}`;
+        card.className = `step-card ${isDone ? 'completed' : 'active'}`;
+
+        card.innerHTML = `
+          <div class="step-header-bar">
+            <div class="step-title-text">${step.title}</div>
+            <span class="step-status-indicator">${isDone ? '✓ Completed' : 'Active Step'}</span>
+          </div>
+          <div class="step-prompt">${step.prompt}</div>
+          <div class="step-controls">
+            <div>
+              ${sIdx > 0 ? `<button class="btn btn-step-back" onclick="focusStepCard(${idx}, ${sIdx-1})">← Back to Step ${sIdx}</button>` : ''}
+            </div>
+            <div style="display:flex; align-items:center; gap:8px;">
+              <span class="step-feedback-msg" id="step-msg-${idx}-${sIdx}"></span>
+              ${!isDone ? `
+                <button class="btn btn-step-check" id="btn-verify-${idx}-${sIdx}" onclick="verifyStepAnswers(${idx}, ${sIdx})">
+                  ${sIdx === prob.steps.length - 1 ? 'Verify & Finish Question ✓' : 'Verify & Reveal Next Step →'}
+                </button>
+              ` : '<span style="color:var(--correct-green); font-weight:700;">✓ Step Verified</span>'}
+            </div>
+          </div>
+        `;
+        container.appendChild(card);
+
+        card.querySelectorAll('.step-input').forEach((inp, iIdx) => {
+          const inputKey = `p${idx}_s${sIdx}_i${iIdx}`;
+          inp.setAttribute('onfocus', 'trackActiveField(this)');
+          if (pState.inputs[inputKey] !== undefined) inp.value = pState.inputs[inputKey];
+          if (isDone) {
+            inp.disabled = true;
+            inp.classList.add('input-correct');
+          } else {
+            inp.disabled = false;
+            inp.addEventListener('input', (e) => {
+              pState.inputs[inputKey] = e.target.value;
+              saveState();
+            });
+            inp.addEventListener('keypress', (e) => {
+              if (e.key === 'Enter') verifyStepAnswers(idx, sIdx);
+            });
+          }
+        });
+      }
+
+      document.getElementById('prevProblemBtn').disabled = idx === 0;
+      document.getElementById('nextProblemBtn').disabled = idx === PROBLEMS_DATA.length - 1;
+      renderPaletteGrid();
+      saveState();
+      triggerMathTypeset();
+    }
+
+    window.verifyStepAnswers = function(pIdx, sIdx) {
+      const prob = PROBLEMS_DATA[pIdx];
+      const pState = getProblemState(pIdx);
+      const card = document.getElementById(`step-card-${pIdx}-${sIdx}`);
+      const inputs = card.querySelectorAll('.step-input');
+      let ok = true;
+
+      inputs.forEach((inp, iIdx) => {
+        const ans = inp.getAttribute('data-ans') || '';
+        const alt = inp.getAttribute('data-alt') || '';
+        const inputKey = `p${pIdx}_s${sIdx}_i${iIdx}`;
+        pState.inputs[inputKey] = inp.value;
+        if (testInputMatching(inp.value, ans, alt)) {
+          inp.classList.remove('input-incorrect');
+          inp.classList.add('input-correct');
+        } else {
+          inp.classList.remove('input-correct');
+          inp.classList.add('input-incorrect');
+          ok = false;
+        }
+      });
+
+      const msg = document.getElementById(`step-msg-${pIdx}-${sIdx}`);
+      if (ok) {
+        playSound('correct');
+        if (!pState.completedSteps.includes(sIdx)) pState.completedSteps.push(sIdx);
+        pState.isSkipped = false;
+        msg.className = "step-feedback-msg correct";
+        msg.textContent = "✓ Correct Step Verification!";
+
+        if (pState.completedSteps.length === prob.steps.length) {
+          pState.isSolved = true;
+          saveState();
+          setTimeout(() => {
+            if (pIdx === PROBLEMS_DATA.length - 1) playSound('fanfare');
+            renderProblem(pIdx);
+          }, 350);
+        } else {
+          saveState();
+          setTimeout(() => {
+            renderProblem(pIdx);
+            focusStepCard(pIdx, sIdx + 1);
+          }, 300);
+        }
+      } else {
+        playSound('incorrect');
+        msg.className = "step-feedback-msg incorrect";
+        msg.textContent = "✗ Verification mismatch in highlighted box.";
+      }
+    };
+
+    window.focusStepCard = function(pIdx, sIdx) {
+      const target = document.getElementById(`step-card-${pIdx}-${sIdx}`);
+      if (target) {
+        target.scrollIntoView({ behavior: 'smooth', block: 'center' });
+        const field = target.querySelector('.step-input');
+        if (field && !field.disabled) field.focus();
+      }
+    };
+
+    document.getElementById('skipProblemBtn').addEventListener('click', () => {
+      playSound('click');
+      const pState = getProblemState(state.currentProblemIdx);
+      pState.isSkipped = true;
+      saveState();
+      if (state.currentProblemIdx < PROBLEMS_DATA.length - 1) renderProblem(state.currentProblemIdx + 1);
+      else renderProblem(state.currentProblemIdx);
+    });
+
+    document.getElementById('prevProblemBtn').addEventListener('click', () => {
+      if (state.currentProblemIdx > 0) renderProblem(state.currentProblemIdx - 1);
+    });
+
+    document.getElementById('nextProblemBtn').addEventListener('click', () => {
+      if (state.currentProblemIdx < PROBLEMS_DATA.length - 1) renderProblem(state.currentProblemIdx + 1);
+    });
+
+    function renderPaletteGrid() {
+      const grid = document.getElementById('paletteGridContainer');
+      grid.innerHTML = '';
+      let solvedCount = 0;
+
+      PROBLEMS_DATA.forEach((p, idx) => {
+        const btn = document.createElement('button');
+        btn.className = 'palette-btn';
+        btn.textContent = idx + 1;
+        const ps = state.problems[idx];
+        if (ps) {
+          if (ps.isSolved) { btn.classList.add('completed'); solvedCount++; }
+          else if (ps.isSkipped) btn.classList.add('skipped');
+          else if (ps.completedSteps.length > 0) btn.classList.add('progress');
+        }
+        if (idx === state.currentProblemIdx) btn.classList.add('active');
+        btn.addEventListener('click', () => renderProblem(idx));
+        grid.appendChild(btn);
+      });
+      document.getElementById('completionRateText').textContent = `${solvedCount}/${PROBLEMS_DATA.length} Solved`;
+    }
+
+    const confirmModal = document.getElementById('confirmModal');
+    document.getElementById('finishAssessmentBtn').addEventListener('click', () => confirmModal.classList.add('active'));
+    document.getElementById('cancelModalBtn').addEventListener('click', () => confirmModal.classList.remove('active'));
+    document.getElementById('confirmSubmitModalBtn').addEventListener('click', () => {
+      confirmModal.classList.remove('active');
+      state.isCompleted = true;
+      saveState();
+      playSound('fanfare');
+      renderReviewScreen();
+      showView('review');
+    });
+
+    function renderReviewScreen() {
+      let solved = 0, skipped = 0;
+      PROBLEMS_DATA.forEach((p, idx) => {
+        const ps = state.problems[idx];
+        if (ps && ps.isSolved) solved++;
+        else if (ps && ps.isSkipped) skipped++;
+      });
+      const total = PROBLEMS_DATA.length;
+      document.getElementById('finalScoreVal').textContent = solved;
+      document.getElementById('accuracyStat').textContent = `${Math.round((solved/total)*100)}%`;
+      document.getElementById('correctCountStat').textContent = solved;
+      document.getElementById('skippedCountStat').textContent = skipped;
+
+      const desc = document.getElementById('performanceFeedbackDesc');
+      desc.textContent = solved === total 
+        ? "Outstanding mastery! You solved all 20 questions of Derivatives Worksheet 03." 
+        : "Review the step-by-step rationales below to polish your differential calculus skills.";
+
+      const reviewContainer = document.getElementById('reviewListContainer');
+      reviewContainer.innerHTML = '';
+
+      PROBLEMS_DATA.forEach((prob, idx) => {
+        const card = document.createElement('div');
+        card.className = 'review-card';
+        let stepsHTML = prob.steps.map(st => `
+          <div style="margin-top:10px; padding:12px; background:#f8fafc; border-left:3px solid #059669; border-radius:4px;">
+            <strong style="color:var(--primary-blue); font-size:0.95rem;">${st.title}</strong>
+            <p style="margin-top:4px; font-size:0.95rem; color:#334155;">${st.explanation}</p>
+          </div>
+        `).join('');
+        card.innerHTML = `
+          <div style="display:flex; justify-content:space-between; align-items:center; margin-bottom:0.5rem;">
+            <strong style="color:var(--primary-dark); font-size:1.1rem;">${prob.title} (${prob.partsInfo})</strong>
+            <span class="status-badge ${state.problems[idx]?.isSolved ? 'badge-complete' : 'badge-skipped'}">
+              ${state.problems[idx]?.isSolved ? 'Solved' : 'Skipped/Incomplete'}
+            </span>
+          </div>
+          <div style="font-size:1.05rem; margin-bottom:0.5rem;">${prob.context}</div>
+          ${stepsHTML}
+        `;
+        reviewContainer.appendChild(card);
+      });
+      triggerMathTypeset();
+    }
+
+    document.getElementById('retakeQuizBtn').addEventListener('click', () => {
+      if (confirm("Reset current worksheet parameters and restart?")) {
+        state.problems = {};
+        state.currentProblemIdx = 0;
+        state.isCompleted = false;
+        saveState();
+        renderProblem(0);
+        showView('sheet');
+      }
+    });
+
+    window.addEventListener('DOMContentLoaded', () => {
+      const last = localStorage.getItem(`${STORAGE_KEY}_last_active`);
+      if (last) studentEmailInput.value = last;
+      triggerMathTypeset();
+    });
+  </script>
+</body>
+</html>
